@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>Main.html</title>
+        <!--<script src = "jquery-3.7.1.min.js"></script>-->
+    </head>
+    <body bgcolor="#DCDCDC">
+        <!--背景色-->
+        <style>
+            #Sl{
+                border-left:solid 18px #64F9C1;
+                /*background-color:#64F9C1;*/
+            }
+
+            #Tf{
+                border-left:solid 18px #D6FF58;
+            }
+
+            #Cb{
+                border-left:solid 18px #A4C6FF;
+            }
+
+            #Bd{
+                border-left:solid 18px #D0B0FF;
+            }
+
+            #De{
+                border-left:solid 18px #FFABCE;
+            }
+        </style>
+
+        <label>問題文を入力してください</label><br>
+        <button onclick = "add9_1Click();">保存</button>
+
+        <!--入力テキストエリア-->
+        <div>
+            <textarea id="Textarea">[[[[大問1]]]]</textarea><br>
+            <style>
+                Textarea{
+                    resize: both;
+                    width: 100%;
+                    height: 200px;
+                }
+            </style>
+        </div>
+        <script src = "./0Textarea.js"></script>
+
+        <!--問題選択-->
+            <button onclick = "add6_1Click();">大問</button>
+            <button onclick = "add7_1Click();">中問</button>
+            <button onclick = "add8_1Click();">小問</button>
+
+        <!--出題形式ボタン-->
+        <div>
+            <button onclick = "add1_1Click();">空欄選択問題追加</button>
+            <button onclick = "add2_1Click();">○×問題追加</button>
+            <button onclick = "add3_1Click();">並び替え問題追加</button>
+            <button onclick = "add4_1Click();">空欄記述問題追加</button>
+            <button onclick = "add5_1Click();">記述問題追加</button>
+        </div>
+
+        <!--ファイル名変更-->
+        <label>保存するファイル名を入力してください</label><br>
+        <input type = "text" id = "Filename"><br>
+
+        <!--ファイル送信-->
+        <label>問題に使用する画像ファイルを選択してください</label><br>
+        <input type="file" method = "POST" name="file" id="File" multiple>
+
+        <!--空欄選択-->
+        <div id = "Sl" >
+            <div id = "txt1_0"></div>
+
+            <!--配点-->
+            <div id = "txt1_1"></div>
+            <input type = "text" id = "txtbox1_1" style = "display:none;" class = "Ptbox">
+
+            <!--配点のテキストボックスの幅-->
+            <style>
+                .Ptbox{
+                    width: 4%;
+                }
+            </style>
+
+            <!--正解-->
+            <div id = "txt1_2"></div>
+            <input type = "text" id = "txtbox1_2" style = "display:none;">
+
+            <!--惑わしの選択肢-->
+            <div id = "txt1_3"></div>
+            <div id = "txtbox1_3">
+                <input type = "text" style = "display:none;">
+            </div>
+
+            <!--追加ボタン-->
+            <input type = "button" id = "add1Button" style = "display:none;" value = "追加" onclick = "add1_2Click();">
+
+            <!--完了、戻るボタン-->
+            <div align = "right">
+                <input type = "button" id = "end1Button" style = "display:none;" value = "完了" onclick = "add1_3Click();">
+                <input type = "button" id = "return1Button" style = "display:none;" value = "戻る" onclick = "add1_4Click();">
+            </div>
+        </div>
+
+        <script src="./1BlankMultipleChoiceQuestions.js"></script>
+
+        <!--○×問題-->
+        <div id = "Tf">
+            <div id = "txt2_0"></div>
+
+            <!--配点-->
+            <div id = "txt2_1"></div>
+            <input type = "text" id = "txtbox2_1" style = "display:none;" class = "Ptbox">
+
+            <!--完了、戻るボタン-->
+            <div align = "right">
+                <input type = "button" id = "end2Button" style = "display:none;" value = "完了" onclick = "add2_2Click();">
+                <input type = "button" id = "return2Button" style = "display:none;" value = "戻る" onclick = "add2_3Click();">
+            </div>
+        </div>
+
+        <script src = "./2TrueFalse.js"></script>
+       
+        <!--並び替え問題-->
+        <div id = "Cb">
+            <div id = "txt3_0"></div>
+
+            <!--配点-->
+            <div id = "txt3_1"></div>
+            <input type = "text" id = "txtbox3_1" style = "display:none;" class = "Ptbox">
+            
+            <!--選択肢-->
+            <div id = "txt3_2"></div>
+            <div id = "txtbox3_2">
+                <input type = "text" style = "display:none;">
+            </div>
+
+            <!--追加ボタン-->
+            <input type = "button" id = "add3Button" style = "display:none;" value = "追加" onclick = "add3_2Click();">
+
+            <!--完了、戻るボタン-->
+            <div align = "right">
+                <input type = "button" id = "end3Button" style = "display:none;" value = "完了" onclick = "add3_3Click();">
+                <input type = "button" id = "return3Button" style = "display:none;" value = "戻る" onclick = "add3_4Click();">
+            </div>
+        </div>
+
+        <script src = "./3SortingProblem.js"></script>
+
+        <!--空欄記述問題-->
+        <div id = "Bd">
+            <div id = "txt4_0"></div>
+
+            <!--配点-->
+            <div id = "txt4_1"></div>
+            <input type = "text" id = "txtbox4_1" style = "display:none;" class = "Ptbox">
+
+            <!--完了ボタン-->
+            <div align = "right">
+                <input type = "button" id = "end4Button" style = "display:none;" value = "完了" onclick = "add4_2Click();">
+                <input type = "button" id = "return4Button" style = "display:none;" value = "戻る" onclick = "add4_3Click();">
+            </div>
+        </div>
+        <script src = "./4BlankDescription.js"></script>
+
+        <!--記述問題-->
+        <div id = "De">
+            <div id = "txt5_0"></div>
+
+            <!--配点-->
+            <div id = "txt5_1"></div>
+            <input type = "text" id = "txtbox5_1" style = "display:none;" class = "Ptbox">
+
+            <!--完了ボタン-->
+            <div align = "right">
+                <input type = "button" id = "end5Button" style = "display:none;" value = "完了" onclick = "add5_2Click();">
+                <input type = "button" id = "return5Button" style = "display:none;" value = "戻る" onclick = "add5_3Click();">
+            </div>
+        </div>
+        <script src = "./5Description.js"></script>
+
+        <script src = "./6BigQuestion.js"></script>
+
+        <script src = "./7Mediumquestion.js"></script>
+
+        <script src = "./8SmallQuestion.js"></script>
+
+        <div id = "end" style = "display:none;" align = "center">
+            保存が完了しました。
+        </div>
+        <script src = "./9Appload.js"></script>
+        <script src="./serverstart.js"></script>
+    </body>
+</html>
